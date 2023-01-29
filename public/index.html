@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="theme-color" content='#ffffff'/> 
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="./images/Applogo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This PWA is made by Valoria Studios" />
+    <link rel="apple-touch-icon" href="./images/Applogo.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <title>Spina</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="loader"></div>
+    <div id="root"></div>
+    <script>
+        if('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./serviceworker.js')
+                    .then((reg) => console.log('Success: ', reg.scope))
+                    .catch((err) => console.log('Failure: ', err));
+            })
+        }
+    </script>
+  </body>
+</html>
